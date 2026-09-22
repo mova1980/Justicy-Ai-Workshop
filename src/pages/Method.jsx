@@ -19,7 +19,7 @@ const ICONS = {
 function MethodBody({ item }) {
   const { L } = useLang()
   return (
-    <div className="px-5 pt-6 pb-8">
+    <div className="px-4 sm:px-5 pt-6 pb-8">
       <h3 className="text-xl font-black text-white">{L(item, 'title')}</h3>
       <p className="mt-3 text-white/70 text-sm leading-relaxed">{L(item, 'body')}</p>
     </div>
@@ -34,7 +34,7 @@ export default function Method() {
     <>
       <PageHero icon={BookOpen} title={t('method.title')} subtitle={t('method.subtitle')} />
       <section className="bg-persian-navy-900 pb-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {methods.map((m, i) => {
               const Icon = ICONS[m.id] || BookOpen

@@ -6,19 +6,18 @@ import { useLang } from '../context/LanguageContext'
 import { PrimaryButton, GhostButton } from './ui'
 
 function Stars() {
-  const stars = useMemo(
-    () =>
-      Array.from({ length: 120 }, (_, i) => ({
-        id: i,
-        top: Math.random() * 100,
-        left: Math.random() * 100,
-        size: Math.random() * 2 + 0.6,
-        delay: Math.random() * 4,
-        dur: 2 + Math.random() * 4,
-        op: 0.25 + Math.random() * 0.6,
-      })),
-    [],
-  )
+  const stars = useMemo(() => {
+    const n = typeof window !== 'undefined' && window.innerWidth < 640 ? 48 : 120
+    return Array.from({ length: n }, (_, i) => ({
+      id: i,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      size: Math.random() * 2 + 0.6,
+      delay: Math.random() * 4,
+      dur: 2 + Math.random() * 4,
+      op: 0.25 + Math.random() * 0.6,
+    }))
+  }, [])
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {stars.map((s) => (
@@ -35,16 +34,15 @@ function Stars() {
 }
 
 function Dust() {
-  const dots = useMemo(
-    () =>
-      Array.from({ length: 25 }, (_, i) => ({
-        id: i,
-        top: 10 + Math.random() * 70,
-        left: Math.random() * 100,
-        delay: i * 0.18,
-      })),
-    [],
-  )
+  const dots = useMemo(() => {
+    const n = typeof window !== 'undefined' && window.innerWidth < 640 ? 10 : 25
+    return Array.from({ length: n }, (_, i) => ({
+      id: i,
+      top: 10 + Math.random() * 70,
+      left: Math.random() * 100,
+      delay: i * 0.18,
+    }))
+  }, [])
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {dots.map((d) => (
@@ -70,8 +68,10 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#020810] via-[#041529] to-[#081421]" />
         <Stars />
         <div
-          className={`absolute top-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[560px] md:h-[560px] lg:w-[680px] lg:h-[680px] ${
-            isRTL ? 'left-[-60px]' : 'right-[-60px]'
+          className={`absolute w-[240px] h-[240px] sm:w-[380px] sm:h-[380px] md:w-[560px] md:h-[560px] lg:w-[680px] lg:h-[680px] opacity-50 sm:opacity-70 md:opacity-100 ${
+            isRTL
+              ? 'left-[-70px] bottom-[-30px] sm:left-[-60px] sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2'
+              : 'right-[-70px] bottom-[-30px] sm:right-[-60px] sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2'
           }`}
         >
           <div className="absolute inset-[-8%] rounded-full bg-persian-blue-500/15 blur-3xl" />
@@ -88,29 +88,29 @@ export default function Hero() {
             }}
           />
         </div>
-        <div className="absolute -top-24 start-1/3 w-[420px] h-[420px] rounded-full bg-persian-blue-700/30 blur-[120px]" />
-        <div className="absolute bottom-0 end-1/4 w-[380px] h-[380px] rounded-full bg-[#5b2ee5]/25 blur-[120px]" />
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#081421]/20 to-[#020810]/80" />
+        <div className="absolute -top-24 start-1/3 w-[240px] h-[240px] sm:w-[420px] sm:h-[420px] rounded-full bg-persian-blue-700/30 blur-[80px] sm:blur-[120px]" />
+        <div className="absolute bottom-0 end-1/4 w-[220px] h-[220px] sm:w-[380px] sm:h-[380px] rounded-full bg-[#5b2ee5]/25 blur-[80px] sm:blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#081421] via-transparent to-[#020810]/50 sm:bg-gradient-to-l sm:from-transparent sm:via-[#081421]/20 sm:to-[#020810]/80" />
         <Dust />
       </div>
 
-      <div className="relative container mx-auto px-6 pt-40 pb-24 md:pt-48">
+      <div className="relative container mx-auto px-4 sm:px-6 pt-32 pb-20 sm:pt-40 sm:pb-24 md:pt-48">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-persian-blue-600/15 border border-persian-blue-500/25 text-persian-blue-200 text-[11px] md:text-xs font-extrabold mb-6"
+          className="inline-flex max-w-full items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-persian-blue-600/15 border border-persian-blue-500/25 text-persian-blue-200 text-[10px] sm:text-[11px] md:text-xs font-extrabold mb-5 sm:mb-6"
         >
-          {t('hero.badge')}
+          <span className="line-clamp-1">{t('hero.badge')}</span>
         </motion.div>
 
-        <h1 className="max-w-4xl text-4xl md:text-6xl lg:text-7xl font-black leading-[1.25] text-white">
+        <h1 className="max-w-4xl text-[1.65rem] sm:text-4xl md:text-6xl lg:text-7xl font-black leading-[1.4] sm:leading-[1.25] text-white">
           {words.map((w, i) => (
             <motion.span
               key={`${w}-${i}`}
-              className="inline-block hero-glow me-2 md:me-3"
+              className="inline-block hero-glow me-1.5 sm:me-2 md:me-3"
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i, duration: 0.5, ease: 'easeOut' }}
+              transition={{ delay: 0.08 * i, duration: 0.5, ease: 'easeOut' }}
             >
               {w}
             </motion.span>
@@ -122,7 +122,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
         >
-          <p className="mt-3 md:mt-4 text-2xl md:text-4xl lg:text-5xl font-black leading-snug max-w-4xl text-shimmer">
+          <p className="mt-3 md:mt-4 text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black leading-[1.45] sm:leading-snug max-w-4xl text-shimmer">
             {t('hero.line2')}
           </p>
         </motion.div>
@@ -131,7 +131,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.75 }}
-          className="mt-6 max-w-2xl text-white/60 text-sm md:text-base leading-relaxed"
+          className="mt-5 sm:mt-6 max-w-2xl text-white/60 text-[13px] sm:text-sm md:text-base leading-relaxed"
         >
           {t('hero.sub')}
         </motion.p>
@@ -140,7 +140,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.95 }}
-          className="mt-8 flex flex-wrap gap-3"
+          className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3"
         >
           <PrimaryButton as={Link} to="/agenda">{t('hero.cta1')}</PrimaryButton>
           <GhostButton as={Link} to="/register">{t('hero.cta2')}</GhostButton>
@@ -150,7 +150,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
-          className="mt-10 flex flex-wrap gap-3"
+          className="mt-8 sm:mt-10 flex flex-wrap gap-2 sm:gap-3"
         >
           {[
             [CalendarDays, t('hero.date')],
@@ -159,16 +159,16 @@ export default function Hero() {
           ].map(([Icon, label]) => (
             <span
               key={label}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl glass-card border border-persian-navy-700/50 text-xs font-bold text-white/70"
+              className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl glass-card border border-persian-navy-700/50 text-[11px] sm:text-xs font-bold text-white/70"
             >
-              <Icon size={14} className="text-persian-blue-300" />
-              {label}
+              <Icon size={14} className="text-persian-blue-300 shrink-0" />
+              <span className="leading-snug">{label}</span>
             </span>
           ))}
         </motion.div>
       </div>
 
-      <a href="#about" className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 hover:text-white/70">
+      <a href="#about" className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/40 hover:text-white/70">
         <span className="relative w-6 h-10 rounded-full border border-white/30">
           <span className="absolute start-1/2 top-2 -translate-x-1/2 w-1 h-2 rounded-full bg-white/70 animate-scroll-wheel" />
         </span>

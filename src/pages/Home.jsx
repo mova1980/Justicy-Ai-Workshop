@@ -34,8 +34,8 @@ export default function Home() {
           node: (
             <div>
               {tp.img && <ImageBanner src={tp.img} />}
-              <div className="px-5 pt-4">
-                <h3 className="text-xl font-black text-white mb-3">{L(tp, 'title')}</h3>
+              <div className="px-4 sm:px-5 pt-4">
+                <h3 className="text-lg sm:text-xl font-black text-white mb-3">{L(tp, 'title')}</h3>
               </div>
               <TopicBody
                 topic={tp}
@@ -57,9 +57,9 @@ export default function Home() {
     <>
       <Hero />
 
-      <section id="about" className="relative py-16 md:py-20 bg-persian-navy-900">
-        <div className="section-divider mb-16" />
-        <div className="container mx-auto px-6">
+      <section id="about" className="relative py-12 sm:py-16 md:py-20 bg-persian-navy-900">
+        <div className="section-divider mb-10 sm:mb-16" />
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeader kicker={t('about.kicker')} title={t('about.title')} subtitle={t('about.body')} />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
@@ -75,7 +75,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07, duration: 0.55 }}
-                className="rounded-2xl glass-card border border-persian-navy-700/50 p-4 text-center"
+                className="rounded-2xl glass-card border border-persian-navy-700/50 p-3 sm:p-4 text-center"
               >
                 <div className="text-xl md:text-2xl font-black text-white">{n}</div>
                 {l && <div className="text-[11px] font-bold text-white/40 mt-1">{l}</div>}
@@ -85,15 +85,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-6 bg-persian-navy-900">
-        <div className="container mx-auto px-6">
-          <div className="rounded-2xl border border-persian-navy-700/50 glass-card p-6 md:p-8 grid md:grid-cols-2 gap-8 items-center">
+      <section className="relative py-4 sm:py-6 bg-persian-navy-900">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="rounded-2xl border border-persian-navy-700/50 glass-card p-4 sm:p-6 md:p-8 grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
               <div className="text-[11px] font-extrabold text-persian-blue-300 mb-2">{t('partners.title')}</div>
               <h3 className="text-xl md:text-2xl font-black text-white mb-4">{t('partners.subtitle')}</h3>
-              <div className="flex flex-wrap items-center gap-4">
-                <img src="/logos/merc.png" alt={t('partners.merc')} className="h-14 w-auto logo-glow" />
-                <img src="/logos/judiciary.png" alt={t('partners.judiciary')} className="h-14 w-14 rounded-full object-cover logo-glow" />
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                <img src="/logos/merc.png" alt={t('partners.merc')} className="h-10 sm:h-14 w-auto max-w-[70%] sm:max-w-none object-contain logo-glow" />
+                <img src="/logos/judiciary.png" alt={t('partners.judiciary')} className="h-10 w-10 sm:h-14 sm:w-14 rounded-full object-cover logo-glow" />
               </div>
               <Link to="/partners" className="inline-flex items-center gap-2 mt-5 text-sm font-extrabold text-persian-blue-300 hover:text-persian-blue-200">
                 {t('common.more')} <Arrow size={16} />
@@ -104,10 +104,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-16 md:py-20 bg-persian-navy-900">
-        <div className="container mx-auto px-6">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-persian-navy-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeader kicker={t('pillars.click')} title={t('pillars.title')} subtitle={t('pillars.subtitle')} />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {pillars.map((p, i) => {
               const Icon = PILLAR_ICONS[p.id]
               return (
@@ -119,8 +119,9 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.55 }}
                   whileHover={{ y: -8, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   style={{ transformPerspective: 800 }}
-                  className="relative text-start rounded-2xl overflow-hidden group min-h-[280px] ring-1 ring-persian-navy-700/50 hover:ring-persian-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(0,85,255,0.45)]"
+                  className="relative text-start rounded-2xl overflow-hidden group min-h-[220px] sm:min-h-[260px] lg:min-h-[280px] ring-1 ring-persian-navy-700/50 hover:ring-persian-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(0,85,255,0.45)]"
                 >
                   <img src={p.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-persian-navy-900/70 backdrop-blur-[3px] group-hover:bg-persian-navy-900/60 transition-colors" />
@@ -140,8 +141,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-16 md:py-20 bg-persian-navy-900">
-        <div className="container mx-auto px-6">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-persian-navy-900">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeader kicker={t('agenda.kicker')} title={t('agenda.title')} subtitle={t('agenda.subtitle')} />
           <div className="grid md:grid-cols-2 gap-4">
             {sections.map((s, i) => (
@@ -153,6 +154,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.55 }}
                 whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.99 }}
                 className="text-start rounded-2xl overflow-hidden border border-persian-navy-700/50 glass-card group"
               >
                 <div className="relative h-36">
@@ -181,15 +183,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-16 bg-persian-navy-900">
-        <div className="container mx-auto px-6">
-          <div className="rounded-3xl overflow-hidden border border-persian-navy-700/50 relative">
+      <section className="relative py-12 sm:py-16 bg-persian-navy-900">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-persian-navy-700/50 relative">
             <img src="/img/bg-court.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-persian-navy-900/75 backdrop-blur-[2px]" />
-            <div className="relative p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative p-5 sm:p-8 md:p-12 grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
               <div>
                 <div className="text-[11px] font-extrabold text-persian-blue-300 mb-2">{t('event.title')}</div>
-                <h3 className="text-2xl md:text-3xl font-black text-white mb-4">{t('hero.place')}</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4">{t('hero.place')}</h3>
                 <ul className="space-y-3 text-sm text-white/70">
                   <li className="flex gap-2"><CalendarDays size={16} className="text-persian-blue-300 mt-0.5" />{t('event.dateVal')}</li>
                   <li className="flex gap-2"><Clock size={16} className="text-persian-blue-300 mt-0.5" />{t('event.timeVal')}</li>

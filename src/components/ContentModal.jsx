@@ -12,7 +12,7 @@ export function TopicBody({ topic, onPush }) {
   const nested = topic.nested || []
 
   return (
-    <div className="px-5 pb-8">
+    <div className="px-4 sm:px-5 pb-8">
       <p className="text-white/70 text-sm leading-relaxed">{L(topic, 'body')}</p>
 
       {examples?.length ? (
@@ -96,8 +96,8 @@ export function TopicBody({ topic, onPush }) {
 export function NestedBody({ item }) {
   const { L } = useLang()
   return (
-    <div className="px-5 pb-8">
-      <h3 className="text-xl font-black text-white mb-3">{L(item, 'title')}</h3>
+    <div className="px-4 sm:px-5 pb-8">
+      <h3 className="text-lg sm:text-xl font-black text-white mb-3">{L(item, 'title')}</h3>
       <p className="text-white/70 text-sm leading-relaxed">{L(item, 'body')}</p>
     </div>
   )
@@ -109,8 +109,8 @@ export function PillarBody({ pillar }) {
   return (
     <div>
       {pillar.img && <ImageBanner src={pillar.img} />}
-      <div className="px-5 pt-5 pb-8">
-        <h3 className="text-xl md:text-2xl font-black text-white">{L(pillar, 'title')}</h3>
+      <div className="px-4 sm:px-5 pt-5 pb-8">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white">{L(pillar, 'title')}</h3>
         <p className="mt-2 text-persian-blue-200 text-sm font-bold">{L(pillar, 'lead')}</p>
         <p className="mt-4 text-white/65 text-sm leading-relaxed">{L(pillar, 'body')}</p>
         <ul className="mt-5 space-y-2">
@@ -131,7 +131,7 @@ export function SectionOverview({ section, onOpenTopic }) {
   return (
     <div>
       {section.img && <ImageBanner src={section.img} />}
-      <div className="px-5 pt-5 pb-8">
+      <div className="px-4 sm:px-5 pt-5 pb-8">
         <div className="flex items-center gap-2 mb-3">
           <StatusPill>{t('agenda.min')} {fmtNum(section.minutes)}</StatusPill>
           <StatusPill tone="gold">{fmtNum(section.topics.length)} {t('agenda.topics')}</StatusPill>
@@ -172,7 +172,7 @@ export function DeepModal({ open, stack, setStack, onClose }) {
         <>
           <StackBar stack={stack} onPop={popTo} onClose={onClose} />
           {stack.length > 1 && (
-            <div className="px-5">
+            <div className="px-4 sm:px-5">
               <button
                 onClick={() => popTo(stack.length - 2)}
                 className="text-[12px] font-extrabold text-persian-blue-300 hover:text-persian-blue-200"

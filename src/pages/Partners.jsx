@@ -36,7 +36,7 @@ export default function Partners() {
     <>
       <PageHero icon={Building2} title={t('partners.title')} subtitle={t('partners.subtitle')} />
       <section className="bg-persian-navy-900 pb-20">
-        <div className="container mx-auto px-6 space-y-4">
+        <div className="container mx-auto px-4 sm:px-6 space-y-4">
           {items.map((it, i) => (
             <motion.article
               key={it.title}
@@ -44,7 +44,7 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.55 }}
-              className="rounded-2xl border border-persian-navy-700/50 glass-card p-5 md:p-7 grid md:grid-cols-[160px_1fr] gap-6 items-center"
+              className="rounded-2xl border border-persian-navy-700/50 glass-card p-4 sm:p-5 md:p-7 grid md:grid-cols-[160px_1fr] gap-4 sm:gap-6 items-center"
             >
               <div className="flex justify-center">
                 {it.img ? (

@@ -23,7 +23,7 @@ export default function Agenda() {
           node: (
             <div>
               {tp.img && <ImageBanner src={tp.img} />}
-              <div className="px-5 pt-4">
+              <div className="px-4 sm:px-5 pt-4">
                 <h3 className="text-xl font-black text-white mb-3">{L(tp, 'title')}</h3>
               </div>
               <TopicBody topic={tp} onPush={(layer) => setStack((c) => [...c, layer])} />
@@ -52,7 +52,7 @@ export default function Agenda() {
         subtitle={t('agenda.subtitle')}
       />
       <section className="bg-persian-navy-900 pb-20">
-        <div className="container mx-auto px-6 -mt-4">
+        <div className="container mx-auto px-4 sm:px-6 -mt-4">
           <div className="flex flex-wrap gap-2 mb-8">
             <StatusPill>{fmtNum(total)} {t('agenda.min')}</StatusPill>
             <StatusPill tone="gold">{fmtNum(sections.length)} {t('about.sections')}</StatusPill>

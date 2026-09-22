@@ -16,7 +16,7 @@ function ToolBody({ item }) {
   return (
     <div>
       {item.img && <ImageBanner src={item.img} />}
-      <div className="px-5 pt-5 pb-8">
+      <div className="px-4 sm:px-5 pt-5 pb-8">
         <h3 className="text-xl font-black text-white">{L(item, 'title')}</h3>
         <p className="mt-3 text-white/70 text-sm leading-relaxed">{L(item, 'body')}</p>
       </div>
@@ -32,7 +32,7 @@ export default function Tools() {
     <>
       <PageHero icon={Wrench} title={t('tools.title')} subtitle={t('tools.subtitle')} />
       <section className="bg-persian-navy-900 pb-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeader kicker={t('tools.kicker')} title={t('tools.title')} subtitle={t('pillars.click')} />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {tools.map((item, i) => {
@@ -46,7 +46,8 @@ export default function Tools() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07, duration: 0.55 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="relative text-start rounded-2xl overflow-hidden min-h-[240px] ring-1 ring-persian-navy-700/50 hover:ring-persian-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(0,85,255,0.45)] group"
+                  whileTap={{ scale: 0.98 }}
+                  className="relative text-start rounded-2xl overflow-hidden min-h-[200px] sm:min-h-[240px] ring-1 ring-persian-navy-700/50 hover:ring-persian-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(0,85,255,0.45)] group"
                 >
                   <img src={item.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-persian-navy-900/70 backdrop-blur-[3px]" />

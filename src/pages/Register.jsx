@@ -64,8 +64,8 @@ export default function Register() {
     <>
       <PageHero icon={ClipboardList} title={t('register.title')} subtitle={t('register.subtitle')} />
       <section className="bg-persian-navy-900 pb-20">
-        <div className="container mx-auto px-6 grid lg:grid-cols-5 gap-8">
-          <form onSubmit={submit} className="lg:col-span-3 rounded-2xl border border-persian-navy-700/50 glass-card p-5 md:p-7 space-y-4">
+        <div className="container mx-auto px-4 sm:px-6 grid lg:grid-cols-5 gap-5 sm:gap-8">
+          <form onSubmit={submit} className="lg:col-span-3 rounded-2xl border border-persian-navy-700/50 glass-card p-4 sm:p-5 md:p-7 space-y-4">
             <Field icon={User} label={t('register.name')} error={errors.name}>
               <input className={inputCls} value={form.name} onChange={(e) => set('name', e.target.value)} />
             </Field>
@@ -77,7 +77,7 @@ export default function Register() {
                     type="button"
                     key={r.id}
                     onClick={() => set('role', r.id)}
-                    className={`px-3 py-2.5 rounded-xl text-xs font-extrabold border transition-all ${
+                    className={`px-3 py-2.5 min-h-[44px] rounded-xl text-xs font-extrabold border transition-all ${
                       form.role === r.id
                         ? 'bg-persian-blue-600/20 text-persian-blue-200 border-persian-blue-500/30'
                         : 'bg-persian-navy-800/60 text-white/40 border-persian-navy-700/50'
@@ -117,11 +117,11 @@ export default function Register() {
                 <ul className="space-y-2">
                   {regs.slice(0, 8).map((r) => (
                     <li key={r.code} className="flex items-center justify-between gap-2 rounded-xl bg-persian-navy-900/40 px-3 py-2 border border-persian-navy-700/40">
-                      <span>
-                        <span className="block text-sm font-extrabold text-white">{r.name}</span>
-                        <span className="text-[11px] text-white/40">{r.unit}</span>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-extrabold text-white truncate">{r.name}</span>
+                        <span className="text-[11px] text-white/40 truncate block">{r.unit}</span>
                       </span>
-                      <span className="font-mono text-[11px] text-persian-blue-300" dir="ltr">{r.code}</span>
+                      <span className="font-mono text-[11px] text-persian-blue-300 shrink-0" dir="ltr">{r.code}</span>
                     </li>
                   ))}
                 </ul>
@@ -138,7 +138,7 @@ export default function Register() {
               <StatusPill tone="ok">{t('register.successTitle')}</StatusPill>
               <p className="mt-3 text-sm text-white/70 leading-relaxed">{t('register.successBody')}</p>
               <div className="mt-4 text-[11px] font-extrabold text-white/40">{t('register.code')}</div>
-              <div className="mt-1 font-mono text-2xl tracking-wider text-white" dir="ltr">{success.code}</div>
+              <div className="mt-1 font-mono text-xl sm:text-2xl tracking-wider text-white break-all" dir="ltr">{success.code}</div>
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
                   onClick={copy}

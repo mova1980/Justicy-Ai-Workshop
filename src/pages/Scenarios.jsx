@@ -29,7 +29,7 @@ function ScenarioWalk({ item }) {
   return (
     <div>
       {item.img && <ImageBanner src={item.img} />}
-      <div className="px-5 pt-5 pb-8">
+      <div className="px-4 sm:px-5 pt-5 pb-8">
         <h3 className="text-xl font-black text-white">{L(item, 'title')}</h3>
         <div className="mt-3 rounded-2xl border border-gold-accent-500/25 bg-gold-accent-500/10 p-3.5 flex gap-3">
           <ShieldAlert size={16} className="text-gold-accent-400 shrink-0 mt-0.5" />
@@ -64,7 +64,7 @@ function ScenarioWalk({ item }) {
           <p className="mt-2 text-sm text-white/65 leading-relaxed">{L(s, 'body')}</p>
         </motion.div>
 
-        <div className="mt-5 flex gap-2">
+        <div className="mt-5 flex flex-col sm:flex-row gap-2">
           {step > 0 && (
             <GhostButton className="px-5 py-2.5 text-sm" onClick={() => setStep((x) => x - 1)}>
               <PrevI size={16} /> {t('scenarios.prev')}
@@ -106,7 +106,8 @@ export default function Scenarios() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07, duration: 0.55 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="relative text-start rounded-2xl overflow-hidden min-h-[250px] ring-1 ring-persian-navy-700/50 hover:ring-persian-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(0,85,255,0.45)]"
+                  whileTap={{ scale: 0.98 }}
+                  className="relative text-start rounded-2xl overflow-hidden min-h-[200px] sm:min-h-[250px] ring-1 ring-persian-navy-700/50 hover:ring-persian-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(0,85,255,0.45)]"
                 >
                   <img src={sc.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-persian-navy-900/70 backdrop-blur-[3px]" />

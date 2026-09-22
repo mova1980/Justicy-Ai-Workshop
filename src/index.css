@@ -13,12 +13,15 @@
 @font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-Black.woff2') format('woff2'), url('/fonts/Modam/Modam-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
 
 html, body, #root { min-height: 100%; }
+html, body { overflow-x: hidden; }
 
 html, body {
   font-family: 'Modam', 'IRANSansX', 'IRANSans', 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
   background: #081421;
   color: #fff;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 html[dir='rtl'], html[lang='fa'], [dir='rtl'], [lang='fa'], .persian {
@@ -32,6 +35,8 @@ html[dir='rtl'], html[lang='fa'], [dir='rtl'], [lang='fa'], .persian {
 h1, h2, h3, h4, h5, h6, button, input, textarea, select {
   font-family: inherit;
 }
+
+h1, h2, h3 { overflow-wrap: anywhere; }
 
 .hero-glow {
   text-shadow:
@@ -110,8 +115,22 @@ h1, h2, h3, h4, h5, h6, button, input, textarea, select {
 ::-webkit-scrollbar-thumb { background: #1d5084; border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: #2464a5; }
 
+input, textarea, select { font-size: 16px; }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+@media (max-width: 639px) {
+  .hero-glow {
+    text-shadow: 0 0 12px rgba(0,85,255,.55), 0 0 28px rgba(0,85,255,.28);
+  }
+  .text-shimmer {
+    text-shadow: 0 0 12px rgba(0,85,255,.55), 0 0 28px rgba(77,148,255,.3);
+  }
+  .logo-glow {
+    filter: drop-shadow(0 0 8px rgba(26,117,255,.6)) drop-shadow(0 0 18px rgba(26,117,255,.28));
+  }
+  .logo-halo { display: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .text-shimmer, .announce-gradient, .animate-earth-spin, .animate-float, .animate-scroll-wheel {

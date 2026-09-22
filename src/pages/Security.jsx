@@ -28,7 +28,7 @@ export default function Security() {
     <>
       <PageHero icon={ShieldAlert} title={t('security.title')} subtitle={t('security.subtitle')} />
       <section className="bg-persian-navy-900 pb-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-3 gap-4 mb-12">
             {section.topics.map((tp, i) => (
               <motion.button
@@ -39,7 +39,7 @@ export default function Security() {
                   node: (
                     <div>
                       {tp.img && <ImageBanner src={tp.img} />}
-                      <div className="px-5 pt-4">
+                      <div className="px-4 sm:px-5 pt-4">
                         <h3 className="text-xl font-black text-white mb-3">{L(tp, 'title')}</h3>
                       </div>
                       <TopicBody topic={tp} onPush={(layer) => setStack((c) => [...c, layer])} />
@@ -67,7 +67,7 @@ export default function Security() {
           </div>
 
           <SectionHeader title={t('security.checklistTitle')} subtitle={t('security.saved')} />
-          <div className="max-w-3xl mx-auto rounded-2xl border border-persian-navy-700/50 glass-card p-5 md:p-7">
+          <div className="max-w-3xl mx-auto rounded-2xl border border-persian-navy-700/50 glass-card p-4 sm:p-5 md:p-7">
             <div className="flex items-center justify-between mb-4">
               <StatusPill tone={done === checklist.length ? 'ok' : 'info'}>
                 {done} / {checklist.length}
@@ -80,7 +80,7 @@ export default function Security() {
                   <li key={c.id}>
                     <button
                       onClick={() => toggle(c.id)}
-                      className={`w-full text-start flex gap-3 items-start rounded-xl px-3 py-3 border transition-all ${
+                      className={`w-full text-start flex gap-3 items-start rounded-xl px-3 py-3 min-h-[48px] border transition-all ${
                         on
                           ? 'border-emerald-500/30 bg-emerald-500/10'
                           : 'border-persian-navy-700/50 hover:bg-white/5'

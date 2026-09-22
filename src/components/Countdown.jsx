@@ -49,8 +49,8 @@ export default function Countdown() {
       <div className="grid grid-cols-4 gap-2">
         {cells.map(([n, label]) => (
           <div key={label} className="rounded-2xl bg-persian-navy-800/70 border border-persian-navy-700/50 py-3 text-center">
-            <div className="text-xl md:text-2xl font-black text-white tabular-nums" dir="ltr">{fmtNum(String(n).padStart(2, '0'))}</div>
-            <div className="text-[10px] font-bold text-white/40 mt-1">{label}</div>
+            <div className="text-lg sm:text-xl md:text-2xl font-black text-white tabular-nums" dir="ltr">{fmtNum(String(n).padStart(2, '0'))}</div>
+            <div className="text-[9px] sm:text-[10px] font-bold text-white/40 mt-1 leading-tight">{label}</div>
           </div>
         ))}
       </div>

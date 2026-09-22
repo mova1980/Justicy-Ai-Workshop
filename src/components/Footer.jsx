@@ -7,16 +7,16 @@ export default function Footer() {
   const year = 2026
 
   return (
-    <footer className="relative bg-persian-navy-900 mt-8">
+    <footer className="relative bg-persian-navy-900 mt-8 pb-[env(safe-area-inset-bottom)]">
       <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(0,85,255,.6), transparent)' }} />
       <div className="absolute -top-20 start-1/4 w-80 h-80 rounded-full bg-persian-blue-700/15 blur-[110px] pointer-events-none" />
 
-      <div className="relative container mx-auto px-6 py-14 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="relative container mx-auto px-4 sm:px-6 py-10 sm:py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
         <div>
           <div className="relative inline-flex items-center gap-3 mb-4">
             <span aria-hidden className="absolute -inset-4 logo-halo rounded-full" />
-            <img src="/logos/merc.png" alt="" className="relative h-12 w-auto logo-glow" />
-            <img src="/logos/judiciary.png" alt="" className="relative h-12 w-12 rounded-full object-cover logo-glow" />
+            <img src="/logos/merc.png" alt="" className="relative h-10 sm:h-12 w-auto max-w-[180px] object-contain logo-glow" />
+            <img src="/logos/judiciary.png" alt="" className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover logo-glow" />
           </div>
           <p className="text-white/50 text-sm leading-relaxed">{t('footer.about')}</p>
           <p className="mt-4 text-gold-accent-400 font-extrabold text-sm">{t('footer.justice')}</p>
@@ -24,7 +24,7 @@ export default function Footer() {
 
         <div>
           <h3 className="text-white font-black mb-4">{t('footer.quick')}</h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="grid grid-cols-2 sm:grid-cols-1 gap-2 text-sm">
             {[
               ['/agenda', 'nav.agenda'],
               ['/tools', 'nav.tools'],
@@ -34,7 +34,7 @@ export default function Footer() {
               ['/poster', 'nav.poster'],
             ].map(([to, k]) => (
               <li key={to}>
-                <Link to={to} className="text-white/50 hover:text-persian-blue-300 transition-colors font-bold">
+                <Link to={to} className="text-white/50 hover:text-persian-blue-300 transition-colors font-bold inline-flex min-h-[36px] items-center">
                   {t(k)}
                 </Link>
               </li>
@@ -83,10 +83,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-persian-navy-800 text-center py-5 text-white/30 text-xs font-bold">
-        {t('footer.copy')} · {year} · {t('footer.rights')}
-        <span className="mx-2 text-white/15">|</span>
-        <span dir="ltr" className="font-latin text-white/40">{t('footer.site')}</span>
+      <div className="border-t border-persian-navy-800 text-center py-5 px-4 text-white/30 text-[11px] sm:text-xs font-bold leading-relaxed">
+        <span className="block sm:inline">{t('footer.copy')} · {year}</span>
+        <span className="hidden sm:inline mx-2 text-white/15">|</span>
+        <span className="block sm:inline mt-1 sm:mt-0">{t('footer.rights')}</span>
+        <span className="hidden sm:inline mx-2 text-white/15">|</span>
+        <span dir="ltr" className="font-latin text-white/40 block sm:inline mt-1 sm:mt-0">{t('footer.site')}</span>
       </div>
     </footer>
   )
