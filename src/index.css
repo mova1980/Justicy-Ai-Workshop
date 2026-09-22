@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,400&family=Vazirmatn:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-Light.woff2') format('woff2'), url('/fonts/Modam/Modam-Light.ttf') format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-Regular.woff2') format('woff2'), url('/fonts/Modam/Modam-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-Medium.woff2') format('woff2'), url('/fonts/Modam/Modam-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-SemiBold.woff2') format('woff2'), url('/fonts/Modam/Modam-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-Bold.woff2') format('woff2'), url('/fonts/Modam/Modam-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-ExtraBold.woff2') format('woff2'), url('/fonts/Modam/Modam-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'Modam'; src:url('/fonts/Modam/Modam-Black.woff2') format('woff2'), url('/fonts/Modam/Modam-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+
+html, body, #root { min-height: 100%; }
+
+html, body {
+  font-family: 'Modam', 'IRANSansX', 'IRANSans', 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
+  background: #081421;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir='rtl'], html[lang='fa'], [dir='rtl'], [lang='fa'], .persian {
+  font-family: 'Modam', 'IRANSansX', 'IRANSans', 'Vazirmatn', 'Plus Jakarta Sans', sans-serif !important;
+}
+
+[dir='ltr'] body, .font-latin, html[dir='ltr'] {
+  font-family: 'Plus Jakarta Sans', 'Vazirmatn', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, textarea, select {
+  font-family: inherit;
+}
+
+.hero-glow {
+  text-shadow:
+    0 0 20px rgba(0,85,255,.6),
+    0 0 40px rgba(0,85,255,.4),
+    0 0 80px rgba(0,85,255,.2);
+}
+
+.text-shimmer {
+  color: #e8f3ff;
+  -webkit-text-fill-color: #e8f3ff;
+  text-shadow:
+    0 0 18px rgba(0,85,255,.7),
+    0 0 42px rgba(77,148,255,.45),
+    0 0 80px rgba(0,85,255,.25);
+  animation: text-shimmer-color 4s ease-in-out infinite;
+}
+@keyframes text-shimmer-color {
+  0%, 100% { color: #ffffff; -webkit-text-fill-color: #ffffff; }
+  50% { color: #b3d1ff; -webkit-text-fill-color: #b3d1ff; }
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 10px rgba(26,117,255,.7)) drop-shadow(0 0 28px rgba(26,117,255,.4)) drop-shadow(0 0 48px rgba(0,85,255,.22));
+}
+.logo-halo {
+  background: radial-gradient(circle, rgba(77,148,255,.22) 0%, rgba(0,85,255,.08) 55%, transparent 72%);
+  filter: blur(6px);
+}
+
+.glass-card {
+  background: rgba(15,40,66,.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.announce-gradient {
+  background: linear-gradient(-45deg,#081421,#1d5084,#003399,#0f2842);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.dropdown-panel {
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 8px;
+  transition: all .25s ease;
+}
+.group\/drop:hover .dropdown-panel,
+.group\/drop:focus-within .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, rgba(0,85,255,.5), transparent);
+  height: 1px;
+}
+
+.bg-space { background: #020810; }
+
+@keyframes scroll-wheel {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+.animate-scroll-wheel { animation: scroll-wheel 1.8s ease-out infinite; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0f2842; }
+::-webkit-scrollbar-thumb { background: #1d5084; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #2464a5; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer, .announce-gradient, .animate-earth-spin, .animate-float, .animate-scroll-wheel {
+    animation: none !important;
+  }
+}
